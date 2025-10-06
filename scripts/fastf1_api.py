@@ -1,8 +1,8 @@
 import fastf1 as f1
 import os
 
-cache_dir = os.path.join("data", "cache_fastf1")
-raw_dir = os.path.join("data", "raw")
+cache_dir = os.path.join("fastf1_testdata", "cache_fastf1")
+raw_dir = os.path.join("fastf1_testdata", "raw")
 os.makedirs(cache_dir, exist_ok = True)
 os.makedirs(raw_dir, exist_ok = True)
 
