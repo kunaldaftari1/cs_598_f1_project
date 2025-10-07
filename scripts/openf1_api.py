@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 BASE = "https://api.openf1.org/v1"
-year = 2025
+year = 2024
 OUTDIR = "../openf1_testdata"
 
 os.makedirs(OUTDIR, exist_ok=True)
@@ -17,12 +17,6 @@ sessions = pd.DataFrame(response.json())
 # get the latest race in the given year
 race = sessions.sort_values("date_start").iloc[-1] 
 session_key = int(race["session_key"])
-
-meeting = race.get("meeting_official_name", race.get("meeting_name", ""))
-circuit = race.get("circuit_short_name", "")
-date = pd.to_datetime(race["date_start"]).strftime("%Y-%m-%d")
-print(f"Latest race session: {meeting} - {circuit} | {race['session_name']} on {date} (session_key={session_key})")
-
 
 # get the drivers from the race
 drivers = pd.DataFrame(
