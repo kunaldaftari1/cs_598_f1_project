@@ -2,6 +2,8 @@ create table sessions (
     session_key INTEGER PRIMARY KEY,
     session_type TEXT NOT NULL,
     circuit_key INTEGER NOT NULL REFERENCES circuits(circuit_key),
+    session_name TEXT NOT NULL,
+    session_type TEXT NOT NULL,
     date_start DATE NOT NULL,
     date_end DATE NOT NULL,
     year INTEGER NOT NULL
@@ -11,6 +13,8 @@ create table starting_grid (
     session_key INTEGER NOT NULL REFERENCES sessions(session_key),
     driver_number INTEGER NOT NULL REFERENCES drivers(driver_number),
     position INTEGER NOT NULL,
+    lap_duration FLOAT NOT NULL,
+
     PRIMARY KEY (session_key, driver_number)
 );
 
@@ -19,7 +23,6 @@ create table race_result (
     driver_number INTEGER NOT NULL REFERENCES drivers(driver_number),
     position INTEGER NOT NULL,
     driver_status TEXT NOT NULL CHECK (driver_status IN ("dnf", "dns", "dsq", "finished")),
-
 
     PRIMARY KEY (session_key, driver_number)
 )
@@ -32,7 +35,8 @@ create table circuits (
 
 create table drivers (
     driver_number INTEGER PRIMARY KEY,
-    full_name TEXT NOT NULL,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
     team_name TEXT NOT NULL REFERENCES teams(team_name)
     session_key INTEGER NOT NULL REFERENCES sessions(session_key)
 );
@@ -49,6 +53,7 @@ create table laps (
     i1_speed INTEGER,
     i2_speed INTEGER,
     st_speed INTEGER,
+    is_pit_out_lap BOOLEAN
 
     PRIMARY KEY (session_key, driver_number, lap_number)
 );
@@ -56,13 +61,12 @@ create table laps (
 create table race_stints (
     session_key INTEGER NOT NULL REFERENCES sessions(session_key),
     driver_number INTEGER NOT NULL REFERENCES drivers(driver_number),
-    stint_number INTEGER NOT NULL,
     lap_start INTEGER NOT NULL,
     lap_end INTEGER NOT NULL,
     compound TEXT NOT NULL CHECK (compound IN ("SOFT", "MEDIUM", "HARD")),
     tyre_life INTEGER NOT NULL
 
-    PRIMARY KEY (session_key, driver_number, stint_number)
+    PRIMARY KEY (session_key, driver_number)
 );
 
 create table overtakes (
