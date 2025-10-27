@@ -33,11 +33,13 @@ create table circuits (
 );
 
 create table drivers (
+    session_key INTEGER NOT NULL REFERENCES sessions(session_key),
     driver_number INTEGER PRIMARY KEY,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
-    team_name TEXT NOT NULL REFERENCES teams(team_name)
-    session_key INTEGER NOT NULL REFERENCES sessions(session_key)
+    team_name TEXT NOT NULL REFERENCES teams(team_name),
+
+    PRIMARY KEY (session_key, driver_number)
 );
 
 create table teams (
