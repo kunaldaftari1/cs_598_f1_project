@@ -1,9 +1,8 @@
 create table sessions (
     session_key INTEGER PRIMARY KEY,
     session_type TEXT NOT NULL,
-    circuit_key INTEGER NOT NULL REFERENCES circuits(circuit_key),
     session_name TEXT NOT NULL,
-    session_type TEXT NOT NULL,
+    circuit_key INTEGER NOT NULL REFERENCES circuits(circuit_key),
     date_start DATE NOT NULL,
     date_end DATE NOT NULL,
     year INTEGER NOT NULL
