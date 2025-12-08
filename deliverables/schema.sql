@@ -82,7 +82,7 @@ create table weather (
     session_key INTEGER NOT NULL REFERENCES sessions(session_key),
     circuit_key INTEGER NOT NULL REFERENCES circuits(circuit_key),
 
-    temperature FLOAT,
+    air_temperature FLOAT,
     humidity FLOAT,
     rainfall BOOLEAN,
     track_temperature FLOAT,
