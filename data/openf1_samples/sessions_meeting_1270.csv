@@ -1,6 +1,0 @@
-meeting_key,session_key,location,date_start,date_end,session_type,session_name,country_key,country_code,country_name,circuit_key,circuit_short_name,gmt_offset,year
-1270,9889,Marina Bay,2025-10-03T09:30:00+00:00,2025-10-03T10:30:00+00:00,Practice,Practice 1,157,SGP,Singapore,61,Singapore,08:00:00,2025
-1270,9890,Marina Bay,2025-10-03T13:00:00+00:00,2025-10-03T14:00:00+00:00,Practice,Practice 2,157,SGP,Singapore,61,Singapore,08:00:00,2025
-1270,9891,Marina Bay,2025-10-04T09:30:00+00:00,2025-10-04T10:30:00+00:00,Practice,Practice 3,157,SGP,Singapore,61,Singapore,08:00:00,2025
-1270,9892,Marina Bay,2025-10-04T13:00:00+00:00,2025-10-04T14:00:00+00:00,Qualifying,Qualifying,157,SGP,Singapore,61,Singapore,08:00:00,2025
-1270,9896,Marina Bay,2025-10-05T12:00:00+00:00,2025-10-05T14:00:00+00:00,Race,Race,157,SGP,Singapore,61,Singapore,08:00:00,2025
