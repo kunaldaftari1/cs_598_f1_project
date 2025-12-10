@@ -46,18 +46,18 @@ create table teams (
     team_name TEXT PRIMARY KEY
 );
 
-create table laps (
-    session_key INTEGER NOT NULL REFERENCES sessions(session_key),
-    driver_number INTEGER NOT NULL REFERENCES drivers(driver_number),
-    lap_number INTEGER NOT NULL,
-    lap_duration FLOAT NOT NULL,
-    i1_speed INTEGER,
-    i2_speed INTEGER,
-    st_speed INTEGER,
-    is_pit_out_lap BOOLEAN
+-- create table laps (
+--     session_key INTEGER NOT NULL REFERENCES sessions(session_key),
+--     driver_number INTEGER NOT NULL REFERENCES drivers(driver_number),
+--     lap_number INTEGER NOT NULL,
+--     lap_duration FLOAT NOT NULL,
+--     i1_speed INTEGER,
+--     i2_speed INTEGER,
+--     st_speed INTEGER,
+--     is_pit_out_lap BOOLEAN
 
-    PRIMARY KEY (session_key, driver_number, lap_number)
-);
+--     PRIMARY KEY (session_key, driver_number, lap_number)
+-- );
 
 create table race_stints (
     session_key INTEGER NOT NULL REFERENCES sessions(session_key),
