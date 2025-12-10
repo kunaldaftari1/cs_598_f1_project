@@ -1,10 +1,13 @@
 import factory
 import sys
 import time
+import pandas as pd
+import os
 
 
 DATE = None
 TIME = 2
+ROWS = 25
 
 def handle_args(args):
     # Parse and handle to_save argument
@@ -238,8 +241,103 @@ def manual_method():
 
     print("=================================")
 
+def load_cleaned(name: str):
+    PATH = "../../data/cleaned/"
+    path = PATH + name + ".csv"
+
+    if not os.path.exists(path):
+        print(f"File not found: {path}")
+        return None
+    
+    try:
+        df = pd.read_csv(path)
+    except Exception as e:
+        print(f"Failed to read {path} with error: {e}")
+        return None
+
+    return df.head(ROWS)
+    
+
 def pre_process():
-    pass
+    global ROWS
+
+    print("=================================")
+    print("Pre-Generated Data Mode")
+    print("=================================")
+    print("Command Options: \n" \
+    "- races \n" \
+    "- starting_grid (grid) \n" \
+    "- race_result (result) \n" \
+    "- circuits \n" \
+    "- drivers \n" \
+    "- race_stints (stints) \n" \
+    "- overtakes \n" \
+    "- weather \n" \
+    "- pirelli_tyres (tyres) \n" \
+    "- rows [int] \n"
+    "- exit")
+
+
+    while True:
+        command = input("Enter command: ").strip()
+        print("---------------------------------")
+
+        if command.lower() == "exit":
+            print("Exiting.")
+            break
+        
+        parts = command.split()
+        if len(parts) == 0:
+            print("No command provided.")
+            continue
+
+        cmd = parts[0].lower()
+        args = parts[1:]
+
+        # change the number of rows shown
+        if cmd == "rows":
+            if len(args) == 0:
+                print("Invalid arguments.")
+                continue
+            num_rows = args[0]
+            if num_rows.isdigit():
+                ROWS = int(num_rows)
+                print(f"Rows updated to {ROWS}")
+                print("---------------------------------")
+            else:
+                print("Invalid input for rows.")
+            continue
+        
+        if cmd == "races":
+            result = load_cleaned("sessions")
+        elif cmd == "starting_grid" or cmd == "grid":
+            result = load_cleaned("starting_grid")
+        elif cmd == "race_result" or cmd == "result":
+            result = load_cleaned("race_result")
+        elif cmd == "circuits" or cmd == "circuit":
+            result = load_cleaned("circuits")
+        elif cmd == "drivers":
+            result = load_cleaned("drivers")
+        elif cmd == "stints" or cmd == "race_stints":
+            result = load_cleaned("stints")
+        elif cmd == "overtakes":
+            result = load_cleaned("overtakes")
+        elif cmd == "weather":
+            result = load_cleaned("weather")
+        elif cmd == "pirelli_tyre" or cmd == "pirelli_tire" or cmd == "pirelli" or cmd == "tyre" or cmd == "tire":
+            result = load_cleaned("pirelli_tyre")
+        else:
+            print("Invalid command.")
+            print("=================================")    
+            continue      
+        
+        print("---------------------------------")
+        print("Result:")
+        print(result)
+        print("=================================")
+    
+    print(("================================="))
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
