@@ -284,8 +284,8 @@ def get_race_stints(save = True):
         first_batch_sessions = race_sessions[:mid]
         second_batch_sessions = race_sessions[mid:]
 
-        print("First batch:", len(first_batch_sessions), "sessions")
-        print("Second batch:", len(second_batch_sessions), "sessions")
+        # print("First batch:", len(first_batch_sessions), "sessions")
+        # print("Second batch:", len(second_batch_sessions), "sessions")
 
         stints_1 = []
 
