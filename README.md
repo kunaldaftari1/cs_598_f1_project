@@ -12,23 +12,24 @@ This project demonstrates an end-to-end data curation workflow for predicting F1
 
 ```
 cs_598_f1_project/
-├── data/                          # Data storage
-│   ├── fastf1_testdata/          # FastF1 cached data
-│   ├── openf1_samples/           # OpenF1 API samples
-│   ├── openmeteo_testdata/       # Weather data samples
-│   └── f1_database.db            # SQLite database (created by schema)
-├── scripts/                       # Data acquisition and processing scripts
-│   ├── fastf1_api.py             # FastF1 data acquisition
-│   ├── openf1_api.py             # Basic OpenF1 API calls
-│   ├── openf1_api_all.py         # Comprehensive OpenF1 data collection
-│   ├── openmeteo_api.py          # Weather data acquisition
-│   ├── create_schema.sql         # Database schema definition
-│   └── test_schema.py            # Schema testing script
-├── documentation/                 # Project documentation
-│   ├── schema.md                 # Detailed database schema
-│   └── readme.md                 # Documentation guide
-├── deliverables/                  # Final project deliverables
-└── README.md                      # This file
+├───data
+│   ├───cleaned
+├───deliverables
+├───documentation
+├───history
+│   ├───data
+│   │   ├───fastf1_testdata
+│   │   │   ├───cache_fastf1
+│   │   │   │   └───2024
+│   │   │   │       └───2024-09-01_Italian_Grand_Prix
+│   │   │   │           └───2024-09-01_Race
+│   │   │   └───raw
+│   │   ├───openf1_samples
+│   │   └───openmeteo_testdata
+│   └───scripts
+└───scripts
+    └───data_cleaning
+        └───__pycache__
 ```
 
 ## Quick Start
