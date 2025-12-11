@@ -12,46 +12,53 @@ This project demonstrates an end-to-end data curation workflow for predicting F1
 
 ```
 cs_598_f1_project/
-│   .gitignore
-│   README.md
+│   .gitignore                       # Files and folders excluded from version control
+│   README.md                        # High-level project overview and instructions
 │
-├───data
-│   ├───cleaned
-│           circuits.csv
-│           drivers.csv
-│           overtakes.csv
-│           pirelli_tyre.csv
-│           race_result.csv
-│           sessions.csv
-│           starting_grid.csv
-│           stints.csv
-│           weather.csv
-├───deliverables
-│       metadata_and_data_dictionary.pdf
-│       schema.sql
-├───documentation
+├───data/                            # All data used or produced by the project
+│   ├───cleaned/                     # Final curated datasets ready for analysis/modeling
+│   │       circuits.csv             # Canonical list of F1 circuits with metadata
+│   │       drivers.csv              # Driver information (name, number, team)
+│   │       overtakes.csv            # Driver-level overtaking statistics
+│   │       pirelli_tyre.csv         # Pirelli tyre compound allocations per circuit/year
+│   │       race_result.csv          # Final race classifications + statuses
+│   │       sessions.csv             # Session metadata (FP/Q/Race) with keys and dates
+│   │       starting_grid.csv        # Qualifying/grid-order data including lap times
+│   │       stints.csv               # Tyre stints per driver (lap start/end, compound)
+│   │       weather.csv              # Weather conditions for each circuit/session
+│
+├───deliverables/                    # Final outputs for instructors and external users
+│       metadata_and_data_dictionary.pdf   # Full metadata description + data dictionary
+│       schema.sql                          # SQL schema (tables, datatypes, keys)
+│
+├───documentation/                   # Supporting documents for understanding the project
 │       Proposal Draft_ Predicting F1 Race Winners through Data Curation.pdf
-│       readme.md
-├───history
-│   ├───data
-│   │   │   f1_database.db
-│   │   │   readme.md
+│                                     # Original project proposal outlining goals & lifecycle
+│       readme.md                     # Additional documentation for this subfolder
+│
+├───history/                         # Archived intermediate data + older scripts
+│   ├───data/
+│   │   │   f1_database.db            # SQLite database storing older versions of curated data
+│   │   │   readme.md                 # Explanation of historical datasets
 │   │   │
-│   │   ├───fastf1_testdata
-│   │   ├───openf1_samples
-│   │   └───openmeteo_testdata
-│   └───scripts
-│           fastf1_api.py
-│           openf1_api.py
-│           openf1_api_all.py
-│           openmeteo_api.py
-│           pirelli_tire_data.py
-│           testing.ipynb
-└───scripts
-    └───data_cleaning
-            factory.py
-            main.py
-            retrieve_data.ipynb
+│   │   ├───fastf1_testdata/          # Cached FastF1 timing/lap data samples
+│   │   ├───openf1_samples/           # Example API responses from OpenF1
+│   │   └───openmeteo_testdata/       # Weather samples from OpenMeteo
+│   │
+│   └───scripts/                      # Older versions of ingestion scripts for reference
+│           fastf1_api.py             # Test script for FastF1 integration
+│           openf1_api.py             # Early OpenF1 ingestion script (single endpoint)
+│           openf1_api_all.py         # Expanded OpenF1 script for multi-endpoint pulls
+│           openmeteo_api.py          # Weather data ingestion script
+│           pirelli_tire_data.py      # Helper script for processing tire allocation data
+│           testing.ipynb             # Notebook used for exploratory testing
+│
+└───scripts/                          # Active data acquisition, cleaning, and workflow tools
+    └───data_cleaning/
+            factory.py                # Factory pattern for building/validating data tables
+            main.py                   # CLI interface (assisted/manual modes) for data pulls
+            retrieve_data.ipynb       # Full Jupyter Notebook pipeline for regenerating data
+
 ```
 
 ## Quick Start
