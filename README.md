@@ -55,7 +55,7 @@ cs_598_f1_project/
 │
 └───scripts/                          # Active data acquisition, cleaning, and workflow tools
     └───data_cleaning/
-            factory.py                # Factory pattern for building/validating data tables
+            factory.py                # API Access Endpoints Connection to dataset
             main.py                   # CLI interface (assisted/manual modes) for data pulls
             retrieve_data.ipynb       # Full Jupyter Notebook pipeline for regenerating data
 
