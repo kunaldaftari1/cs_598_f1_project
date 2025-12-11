@@ -25,8 +25,6 @@ cs_598_f1_project/
 │           sessions.csv
 │           starting_grid.csv
 │           stints.csv
-│           stints_part1.csv
-│           stints_part2.csv
 │           weather.csv
 ├───deliverables
 │       metadata_and_data_dictionary.pdf
