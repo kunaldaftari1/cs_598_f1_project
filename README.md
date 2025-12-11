@@ -12,24 +12,48 @@ This project demonstrates an end-to-end data curation workflow for predicting F1
 
 ```
 cs_598_f1_project/
+│   .gitignore
+│   README.md
+│
 ├───data
 │   ├───cleaned
+│           circuits.csv
+│           drivers.csv
+│           overtakes.csv
+│           pirelli_tyre.csv
+│           race_result.csv
+│           sessions.csv
+│           starting_grid.csv
+│           stints.csv
+│           stints_part1.csv
+│           stints_part2.csv
+│           weather.csv
 ├───deliverables
+│       metadata_and_data_dictionary.pdf
+│       schema.sql
 ├───documentation
+│       Proposal Draft_ Predicting F1 Race Winners through Data Curation.pdf
+│       readme.md
 ├───history
 │   ├───data
+│   │   │   f1_database.db
+│   │   │   readme.md
+│   │   │
 │   │   ├───fastf1_testdata
-│   │   │   ├───cache_fastf1
-│   │   │   │   └───2024
-│   │   │   │       └───2024-09-01_Italian_Grand_Prix
-│   │   │   │           └───2024-09-01_Race
-│   │   │   └───raw
 │   │   ├───openf1_samples
 │   │   └───openmeteo_testdata
 │   └───scripts
+│           fastf1_api.py
+│           openf1_api.py
+│           openf1_api_all.py
+│           openmeteo_api.py
+│           pirelli_tire_data.py
+│           testing.ipynb
 └───scripts
     └───data_cleaning
-        └───__pycache__
+            factory.py
+            main.py
+            retrieve_data.ipynb
 ```
 
 ## Quick Start
